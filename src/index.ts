@@ -2,9 +2,12 @@ import express from 'express'
 import {Connection, Keypair, sendAndConfirmRawTransaction, Transaction} from "@solana/web3.js";
 import base58 from "bs58";
 import {validateInstructions, validateTransaction} from "./libraries/octane/core/index";
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 const connection = new Connection('https://api.devnet.solana.com/', {commitment: 'confirmed'});
-const feePayer = Keypair.fromSecretKey(base58.decode("2Jw8Kf5LfUBewedaNYaSypPFyVb3MgVENuDtaK7SyAGYE5vdQZ1iWJdZKas4YayVfJK2VUZ9FSuefbnL3PhFjeMS"));
+const feePayer = Keypair.fromSecretKey(base58.decode(process.env.SECRET_KEY ?? ""));
 const skipPreflight = true
 
 const app = express()

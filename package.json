@@ -1,11 +1,9 @@
 {
-  "name": "gassless-solana-pay",
-  "version": "1.0.0",
+  "name": "octane-server",
+  "version": "0.0.1",
   "license": "MIT",
-  "private": true,
   "scripts": {
-    "dev": "ts-node ./src/index.ts",
-    "proxy": "ngrok http 3000"
+    "dev": "ts-node ./src/index.ts"
   },
   "dependencies": {
     "@orca-so/whirlpools-sdk": "^0.5.0",
@@ -15,6 +13,7 @@
     "axios": "^0.27.2",
     "bs58": "^4.0.1",
     "cache-manager": "^3.6.0",
+    "dotenv": "^16.0.3",
     "encoding": "^0.1.13",
     "express": "4.18.2",
     "tweetnacl": "^1.0.3"
