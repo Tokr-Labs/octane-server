@@ -18,3 +18,5 @@ $ npm i
 $ npm run dev
 $ ngrok http 3000
 ```
+
+_Note* In order to run the associated client repo on a physical device you need to run the services through a proxy service that is publicly accessible. This repo uses ngrok but you could use any proxy server that works in the same manner._
