@@ -106,13 +106,22 @@ app.post(`/send`, async (req, res) => {
 
     // Step 8: Send and confirm the transaction
 
-    const txid = await sendAndConfirmRawTransaction(
-        connection,
-        transaction.serialize(),
-        { commitment: 'confirmed', skipPreflight: skipPreflight }
-    );
+    try {
 
-    res.status(200).json({status: 'ok', txid});
+        const txid = await sendAndConfirmRawTransaction(
+          connection,
+          transaction.serialize(),
+          { commitment: 'confirmed', skipPreflight: skipPreflight }
+        );
+
+        res.status(200).json({status: 'ok', txid});
+
+    } catch {
+
+        res.status(400).send({status: 'error', message: 'transaction failed'});
+
+    }
+
 
 });
 
